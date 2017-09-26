@@ -26,7 +26,7 @@ public class Student implements Attendee {
 			return lastName;
 		}
 		
-		public boolean matches(String first, String last) {
+		public boolean mathces(String first, String last) {
 			return firstName.equals(first)&& (lastName.equals(last));
 		}
 		
@@ -41,13 +41,21 @@ public class Student implements Attendee {
 			else while (lastName.length()<20){
 				lastName += " ";
 			}
-			lastName+= firstName;
+			if (firstName.length() > 20){
+				lastName = firstName.substring(0, 17)+ "...";
+			}
+			else {
+				lastName+= firstName;
+			}
 			while(lastName.length()<40){
 				lastName += " ";
 			}
 			if(present){
 				lastName += "PRESENT";
 			}
-			else lastName += "ABSENT";
+			else {
+				lastName += "ABSENT";
+			}
+			return lastName;
 		}
 }
