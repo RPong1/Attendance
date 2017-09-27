@@ -36,27 +36,28 @@ public class Student implements Attendee {
 		}
 		
 		public String getReportString() {
-			if(lastName.length()>20){
-				lastName = lastName.substring(0, 17)+ "...";
+			String s = lastName;
+			if(s.length()>20){
+				s = s.substring(0, 17)+ "...";
 			}
-			else while (lastName.length()<20){
-				lastName += " ";
+			else while (s.length()<20){
+				s += " ";
 			}
 			if (firstName.length() > 20){
-				lastName = firstName.substring(0, 17)+ "...";
+				s = firstName.substring(0, 17)+ "...";
 			}
 			else {
-				lastName+= firstName;
+				s+= firstName;
 			}
-			while(lastName.length()<40){
-				lastName += " ";
+			while(s.length()<40){
+				s += " ";
 			}
 			if(present){
-				lastName += "PRESENT\n";
+				s += "PRESENT\n";
 			}
 			else {
-				lastName += "ABSENT\n";
+				s += "ABSENT\n";
 			}
-			return lastName;
+			return s;
 		}
 }
