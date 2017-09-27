@@ -3,11 +3,12 @@ package attendance;
 public class Student implements Attendee {
 	private String firstName;
 	private String lastName;
-	private boolean present = false;
+	private boolean present;
 
 	public Student(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+		present = false;
 	}
 
 		public boolean isPresent() {
@@ -27,11 +28,11 @@ public class Student implements Attendee {
 		}
 		
 		public boolean mathces(String first, String last) {
-			return firstName.equals(first)&& (lastName.equals(last));
+			return first.toLowerCase().equals(firstName.toLowercase())&& last.toLowerCase().equals(lastName.toLowerCase());
 		}
 		
 		public boolean matches(String last) {
-			return lastName.equals(last);
+			return last.toLowerCase().equals(lastName.toLowerCase());
 		}
 		
 		public String getReportString() {
@@ -51,10 +52,10 @@ public class Student implements Attendee {
 				lastName += " ";
 			}
 			if(present){
-				lastName += "PRESENT";
+				lastName += "PRESENT\n";
 			}
 			else {
-				lastName += "ABSENT";
+				lastName += "ABSENT\n";
 			}
 			return lastName;
 		}
